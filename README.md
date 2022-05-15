@@ -14,7 +14,6 @@ Añadir HTTP requests pipelines
 -Crear un service scope para el dbContext  
 `BlazingPizza\Program.cs` at line `31`    
 
-  
 -Llamar la clase estática con el dbcontext
 
 ## Uso del API Controller  
