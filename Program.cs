@@ -1,4 +1,3 @@
-using BlazingPizza.Data;
 using BlazingPizza;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +8,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
 builder.Services.AddSqlite<PizzaStoreContext>("Data Source=pizza.db");
+builder.Services.AddScoped<OrderState>();
 
 var app = builder.Build();
 
@@ -38,4 +38,4 @@ using (var scope = scopeFactory.CreateScope())
     }
 }
 
-app.Run();f
+app.Run();

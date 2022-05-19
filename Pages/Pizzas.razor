@@ -3,7 +3,7 @@
 @using BlazingPizza.Data
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
-@using System.Net.Http.Json
+
 
 <h1>Choose your pizza</h1>
 
@@ -21,9 +21,9 @@ else
         <tr>
         <th>Pizza Name</th>
         <th>Description</th>
-        <th>Vegetarian?</th>
+        <!-- <th>Vegetarian?</th>
         <th>Vegan?</th>
-        <th>Price</th>
+        <th>Price</th> -->
         </tr>
         </thead>
         <tbody>
@@ -32,9 +32,9 @@ else
         <tr>
             <td>@pizza.Name</td>
             <td>@pizza.Description</td>
-            <td>pizza.Vegetarian</td>
+            <!-- <td>pizza.Vegetarian</td>
             <td>pizza.Vegan</td>
-            <td>pizza.Price</td>
+            <td>pizza.Price</td> -->
         </tr>
         }
         </tbody>
