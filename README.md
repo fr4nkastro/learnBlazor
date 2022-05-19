@@ -21,6 +21,13 @@ Añadir HTTP requests pipelines
 `BlazingPizza\Pages\Index.razor` at line `28`  
 
 
+##Compartir Data  
+### Parameters  
+Definir en el componente hijo (child component), (.\Shared\ConfigurePizzaDialog.razor) los tipos de parámetros. 
+Mandar a llamar el componente hijo  definido desde otro componente (parent component),(.\BlazingPizza\Pages\Index.razor) con atributos del tipo de parámetro.  
 
-
+### AppState
+Crear una clase que guarde la lógica del servicio  (.\BlazingPizza\Model\OrderState.cs)
+Inyectar el servicio en Program.cs (AddScope<service>)  
+Usar el service desde cualquier componente
 
