@@ -12,6 +12,8 @@
 @using System.Net.Http.Json
 @using BlazingPizza.Data
 
+<TopBar/>
+
 <div class="main">
   <h1>Blazing Pizzas</h1>
   <ul class="pizza-cards">
@@ -43,7 +45,37 @@
         OnConfirm="OrderState.ConfirmConfigurePizzaDialog"
      />
  }
+ <div class="sidebar">
+    @if (order.Pizzas.Any())
+    {
+        <div class="order-contents">
+            <h2>Your order</h2>
 
+            @foreach (var configuredPizza in order.Pizzas)
+            {
+              <div class="cart-item">
+                  <a @onclick="@(() => OrderState.RemoveConfiguredPizza(configuredPizza))" class="delete-item">x</a>
+                  <div class="title">@(configuredPizza.Size)" @configuredPizza.Special.Name</div>
+                  <div class="item-price">
+                      @configuredPizza.GetFormattedTotalPrice()
+                  </div>
+              </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="empty-cart">Choose a pizza<br>to get started</div>
+    }
+
+    <div class="order-total @(order.Pizzas.Any() ? "" : "hidden")">
+        Total:
+        <span class="total-price">@order.GetFormattedTotalPrice()</span>
+        <a href="checkout" class="@(OrderState.Order.Pizzas.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
+            Order >
+        </a>
+    </div>
+</div>
   
 @code {
         List<PizzaSpecial> specials = new();
@@ -55,5 +87,5 @@
               specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
           }
 
-
+          Order order => OrderState.Order;
         }
