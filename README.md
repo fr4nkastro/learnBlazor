@@ -104,3 +104,26 @@ Example
         <div>Get Pizza</div>
     </NavLink>
 ```
+
+## Manejo de Excepciones 
+Para evitar una excepción por el tipo de dato de un routing parameter se establece el tipo de dato del parametro:
+
+Ejemplo:
+[OrderDetail.razor](Pages/OrderDetail.razor):
+
+```
+@page "/myorders/{orderId:int}"
+```
+
+# Layouts
+Para crear un layout se hereda la siguiente clase: `@inherits LayoutComponentBase` y se especifica donde se renderizará el contenido de los componentes que lo implementen con la directiva `@Body`.
+Ejemplo:
+[MainLayout.razor](Shared/MainLayout.razor)
+
+Para implementar un layout: `@layout <Nombre_del_Layout>`
+Ejemplo:
+[Index.razor](Pages/Index.razor)
+
+Las páginas Not Found pueden implementar el layout desde app.razor
+añadiendo el atributo Layout="nombre_de_layout"  `<LayoutView Layout="typeof(MainLayout)">`
+Ejemplo:[App.razor](App.razor)
